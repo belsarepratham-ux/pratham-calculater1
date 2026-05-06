@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratham's High-Tech Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="header">
+                <h1>Pratham's Calculator</h1>
+                <div class="theme-toggle">
+                    <button id="themeBtn" class="theme-btn" onclick="toggleTheme()">🌙</button>
+                </div>
+            </div>
+
+            <div class="display-section">
+                <input type="text" id="display" class="display" placeholder="0" readonly>
+                <div class="history-display" id="historyDisplay"></div>
+            </div>
+
+            <div class="memory-section">
+                <div class="memory-value">
+                    <span>Memory: <strong id="memoryValue">0</strong></span>
+                </div>
+                <div class="memory-buttons">
+                    <button onclick="memoryAdd()" class="mem-btn">M+</button>
+                    <button onclick="memorySub()" class="mem-btn">M-</button>
+                    <button onclick="memoryRecall()" class="mem-btn">MR</button>
+                    <button onclick="memoryClear()" class="mem-btn">MC</button>
+                </div>
+            </div>
+
+            <div class="buttons-section">
+                <!-- Row 1: Scientific Functions -->
+                <div class="button-row">
+                    <button onclick="appendFunction('sin(')" class="func-btn">sin</button>
+                    <button onclick="appendFunction('cos(')" class="func-btn">cos</button>
+                    <button onclick="appendFunction('tan(')" class="func-btn">tan</button>
+                    <button onclick="appendFunction('log(')" class="func-btn">log</button>
+                </div>
+
+                <!-- Row 2: Scientific Functions Continued -->
+                <div class="button-row">
+                    <button onclick="appendFunction('ln(')" class="func-btn">ln</button>
+                    <button onclick="appendFunction('factorial(')" class="func-btn">n!</button>
+                    <button onclick="appendFunction('sqrt(')" class="func-btn">√</button>
+                    <button onclick="appendFunction(Math.PI)" class="func-btn">π</button>
+                </div>
+
+                <!-- Row 3: More Functions -->
+                <div class="button-row">
+                    <button onclick="appendFunction(Math.E)" class="func-btn">e</button>
+                    <button onclick="appendOperator('^')" class="op-btn">x^y</button>
+                    <button onclick="appendOperator('%')" class="op-btn">%</button>
+                    <button onclick="clearDisplay()" class="clear-btn">AC</button>
+                </div>
+
+                <!-- Row 4: Number Pad -->
+                <div class="button-row">
+                    <button onclick="appendNumber('7')" class="num-btn">7</button>
+                    <button onclick="appendNumber('8')" class="num-btn">8</button>
+                    <button onclick="appendNumber('9')" class="num-btn">9</button>
+                    <button onclick="appendOperator('/')" class="op-btn">÷</button>
+                </div>
+
+                <!-- Row 5: Number Pad -->
+                <div class="button-row">
+                    <button onclick="appendNumber('4')" class="num-btn">4</button>
+                    <button onclick="appendNumber('5')" class="num-btn">5</button>
+                    <button onclick="appendNumber('6')" class="num-btn">6</button>
+                    <button onclick="appendOperator('*')" class="op-btn">×</button>
+                </div>
+
+                <!-- Row 6: Number Pad -->
+                <div class="button-row">
+                    <button onclick="appendNumber('1')" class="num-btn">1</button>
+                    <button onclick="appendNumber('2')" class="num-btn">2</button>
+                    <button onclick="appendNumber('3')" class="num-btn">3</button>
+                    <button onclick="appendOperator('-')" class="op-btn">−</button>
+                </div>
+
+                <!-- Row 7: Number Pad & Operations -->
+                <div class="button-row">
+                    <button onclick="appendNumber('0')" class="num-btn zero">0</button>
+                    <button onclick="appendNumber('.')" class="num-btn">.</button>
+                    <button onclick="appendOperator('+')" class="op-btn">+</button>
+                </div>
+
+                <!-- Row 8: Equals & Backspace -->
+                <div class="button-row">
+                    <button onclick="backspace()" class="func-btn">← Back</button>
+                    <button onclick="calculateResult()" class="equals-btn">=</button>
+                    <button onclick="toggleSign()" class="func-btn">±</button>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h3>📋 Calculation History</h3>
+                <div class="history-list" id="historyList">
+                    <p class="empty-history">No calculations yet</p>
+                </div>
+                <button onclick="clearHistory()" class="clear-history-btn">Clear History</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
